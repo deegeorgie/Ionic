@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('onacheck', ['ionic', 'onacheck.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -25,49 +25,58 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
+ .state('app', {
     url: '/app',
     abstract: true,
-    templateUrl: 'templates/menu.html',
+    templateUrl: 'templates/sidebar.html',
     controller: 'AppCtrl'
   })
 
-  .state('app.search', {
-    url: '/search',
+  .state('app.home', {
+    url: '/home',
     views: {
-      'menuContent': {
-        templateUrl: 'templates/search.html'
+      'mainContent': {
+        templateUrl: 'templates/home.html'
       }
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
+    .state('app.contactus', {
+      url: '/contactus',
       views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
+        'mainContent': {
+          templateUrl: 'templates/contactus.html'
         }
       }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
+    }) 
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
+  .state('app.aboutus', {
+      url: '/aboutus',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/aboutus.html'
+        }
+      }
+    })
+  
+   .state('app.menu', {
+      url: '/menu',
+      views: {
+        'mainContent': {
+          templateUrl: 'templates/menu.html'
+        }
+      }
+    })
+  
+  .state('app.schooldetails', {
+    url: '/menu/:Id',
     views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+      'mainContent': {
+        templateUrl: 'templates/schooldetail.html',
+        controller: ''
       }
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/home');
 });

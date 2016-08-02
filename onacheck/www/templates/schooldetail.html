@@ -1,0 +1,9 @@
+<ion-view view-title="School Details">
+  <ion-content>
+    <ion-list>
+      <ion-item ng-repeat="school in schools" href="#/app/schools/{{school.id}}">
+        {{school.name}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
